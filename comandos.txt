@@ -1,0 +1,23 @@
+
+mvn clean package
+
+aws lambda create-function --function-name NegativaBuroA --zip-file fileb://target/LambdaApiGatewayP01-1.0.jar --handler service.lambda.NegativaBuroA::handleRequest --runtime java8 --role arn:aws:iam::620769944424:role/lambda-role
+
+
+aws lambda update-function-code --function-name NegativaBuroA --zip-file fileb://target/LambdaApiGatewayP01-1.0.jar
+
+
+aws lambda invoke --function-name NegativaBuroA --invocation-type RequestResponse tmp/resposta.txt
+
+
+
+
+
+https://zu9zzwqbqa.execute-api.us-west-2.amazonaws.com/NegativaBuroA
+
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/aaanm1309-1/NegativaBuroA.git
+git push -u origin main
